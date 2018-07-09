@@ -20,13 +20,52 @@ variable "memory" {
 variable "log_group" {
   description = "Name of the Cloudwatch log group to which tasks will write logs to."
 }
-variable "service_port" {
-  description = "The expposed port of the task."
+
+variable "log_driver" {
+  default = "awslogs"
 }
+variable "log_driver_options" {
+  type = "map"
+  default = {
+    "awslogs-group" = "common-log-group"
+    "awslogs-region"= "eu-west-1",
+    "awslogs-stream-prefix"= "container"
+  }
+}
+
+variable "port_mappings" {
+  type = "list"
+  default = [
+    {
+      "hostPort" = "__NOT_DEFINED__",
+      "containerPort" = "__NOT_DEFINED__"
+    }
+  ]
+}
+
+variable "links" {
+  type = "list"
+  default = []
+}
+variable "essential" {
+  default = true
+}
+variable "entrypoint" {
+  default = ""
+}
+
+
 variable "service_command" {
   default = ""
   description = "The command that needs to run at startup of the task."
 }
 variable "task_role_arn" {
   default = "ARN of the role that the task should run with."
+}
+variable "environment_vars" {
+  type = "map"
+  default = {
+    "__NOT_DEFINED__" = "__NOT_DEFINED__",
+    "fuck"="me"
+  }
 }
