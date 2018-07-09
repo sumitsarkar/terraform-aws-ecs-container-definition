@@ -65,7 +65,6 @@ variable "task_role_arn" {
 variable "environment_vars" {
   type = "map"
   default = {
-    "__NOT_DEFINED__" = "__NOT_DEFINED__",
-    "fuck"="me"
+    "__NOT_DEFINED__" = "__NOT_DEFINED__"
   }
 }
