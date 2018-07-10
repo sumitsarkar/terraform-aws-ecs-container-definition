@@ -1,10 +1,3 @@
-variable "region" {
-  default = "eu-west-1"
-  description = "AWS Region"
-}
-variable "environment" {
-  description = "Name of the environment to launch in. Used mainly for naming."
-}
 variable "service_name" {
   default = "Name of the service."
 }
@@ -55,9 +48,6 @@ variable "entrypoint" {
 variable "service_command" {
   default = ""
   description = "The command that needs to run at startup of the task."
-}
-variable "task_role_arn" {
-  default = "ARN of the role that the task should run with."
 }
 variable "environment_vars" {
   type = "map"
