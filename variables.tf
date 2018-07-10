@@ -17,9 +17,6 @@ variable "cpu" {
 variable "memory" {
   description = "Memory in MegaBytes to assign to this task."
 }
-variable "log_group" {
-  description = "Name of the Cloudwatch log group to which tasks will write logs to."
-}
 
 variable "log_driver" {
   default = "awslogs"
@@ -64,7 +61,4 @@ variable "task_role_arn" {
 }
 variable "environment_vars" {
   type = "map"
-  default = {
-    "__NOT_DEFINED__" = "__NOT_DEFINED__"
-  }
 }
