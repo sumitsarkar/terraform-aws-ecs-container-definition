@@ -1,3 +1,4 @@
 output "container_definition" {
-  value = "${data.template_file._final.rendered}"
+  value = data.template_file._final.rendered
 }
+
