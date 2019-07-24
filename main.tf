@@ -87,7 +87,7 @@ JSON
 }
 
 data "template_file" "_environment_var" {
-  count = length(keys(var.environment_vars))
+  count = length(keys(var.environment_vars)) > 0 ? length(keys(var.environment_vars)) : 0
   template = <<JSON
 {
 $${join(",\n",
